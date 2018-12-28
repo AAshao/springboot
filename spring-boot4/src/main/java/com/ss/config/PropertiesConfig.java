@@ -1,6 +1,8 @@
 package com.ss.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
 /**
@@ -12,6 +14,10 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class PropertiesConfig {
+	
+	// 可用来读取application.properties文件中的属性
+	@Autowired
+	private Environment environment;
 
 	@Value("${server.port}")
 	private Integer port;
