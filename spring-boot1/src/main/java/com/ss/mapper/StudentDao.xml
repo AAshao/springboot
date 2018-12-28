@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+    PUBLIC "-//mybatis.org//DTDMapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+   <mapper namespace="com.ss.mapper.StudentDao">
+   		<select id="queryStudents" resultType="studentInfo">
+   			select s.id as id,s.user_name as userName ,s.user_age as userAge from student_info s
+   		</select>	
+   		<!-- 插入 -->
+   		<insert id="insertStudent" parameterType="studentInfo" keyColumn="id" keyProperty="id" useGeneratedKeys="true">
+   			insert into student_info(user_name,user_age) values(#{userName},#{userAge})
+   		</insert>
+   		<!-- 批量插入 -->
+   		<insert id="insertBatchStu" parameterType="java.util.List" keyProperty="id" useGeneratedKeys="true">
+   			insert into student_info(user_name,user_age) values
+   			<foreach collection="list" item="stus" separator=",">
+   				(#{stus.userName},#{stus.userAge})
+   			</foreach>
+   		</insert>
+   		
+   		<!-- 更新 -->
+   		<update id="updateStu" useGeneratedKeys="true" keyColumn="id" parameterType="map">
+   			update student_info set user_name=#{userName},user_age=#{userAge} where id=#{id} 
+   		</update>
+   		
+   </mapper>
