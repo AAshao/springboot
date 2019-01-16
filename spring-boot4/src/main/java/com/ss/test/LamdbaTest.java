@@ -9,6 +9,10 @@ public class LamdbaTest {
 		TestA ta=(String str)-> {return str;};
 		
 		System.out.println(ta.printStr("121212"));
+		
+		TestB tb=() -> {System.out.println("123456");};
+		tb.print();
+		 
 	}
 	
 }
@@ -16,7 +20,9 @@ public class LamdbaTest {
 @FunctionalInterface
 interface TestA{
 	public String printStr(String str);
-
 }
 
+interface TestB{
+	public void print();
+}
 
