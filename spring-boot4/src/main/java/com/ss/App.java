@@ -11,7 +11,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.alibaba.fastjson.JSONArray;
 import com.ss.config.MyImportSelector;
-import com.ss.dao.UseDao;
+import com.ss.dao.UserDao;
 import com.ss.entity.StudentInfo;
 
 @SpringBootApplication(exclude=ErrorMvcAutoConfiguration.class)
