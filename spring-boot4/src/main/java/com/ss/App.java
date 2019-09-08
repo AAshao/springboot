@@ -1,18 +1,13 @@
 package com.ss;
 
-import java.util.List;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Import;
-import org.springframework.web.client.RestTemplate;
 
-import com.alibaba.fastjson.JSONArray;
 import com.ss.config.MyImportSelector;
-import com.ss.dao.UserDao;
-import com.ss.entity.StudentInfo;
+import com.ss.mail.MailUtil;
 
 @SpringBootApplication(exclude=ErrorMvcAutoConfiguration.class)
 
@@ -21,7 +16,8 @@ public class App {
 		public static final String  basic_url="http://localhost:8080";
 		public static void main(String[] args) throws  Exception {
 			ConfigurableApplicationContext  context= SpringApplication.run(App.class, args);
-			
+//			context.getBean(MailUtil.class).getTempalte();
+			context.getBean(MailUtil.class).sendMailFile();
 //			RestTemplate restTemplate=new RestTemplate();
 //			String infos=  restTemplate.getForObject(basic_url+"/user/queryStuList", String.class);
 //			List<StudentInfo> infos2=JSONArray.parseArray(infos,StudentInfo.class);

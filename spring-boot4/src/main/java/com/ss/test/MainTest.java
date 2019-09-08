@@ -1,5 +1,6 @@
 package com.ss.test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
@@ -11,6 +12,18 @@ import java.util.stream.Collectors;
 
 public class MainTest {
 	public static void main(String[] args) {
+		Integer[] a ={1,2,3};
+		List<Integer> asList = Arrays.asList(a);
+		System.out.println(asList.getClass());
+		List<Integer> list = Arrays.stream(a).collect(Collectors.toList());
+		list.add(4);
+		System.out.println(list);
+		List<Integer> list2= new ArrayList<Integer>(Arrays.asList(a));
+		list2.add(5);
+		System.out.println(list2.getClass());
+	}
+	
+	private static void m8(){
 		String[] strs=new  String[]{"1","2","3","4"};
 		List<String> list= Arrays.asList(strs);
 		
@@ -32,8 +45,8 @@ public class MainTest {
 		
 		Thread t=new Thread(() -> func());
 		t.start();
+	
 	}
-
 	
 
 	private static Object func() {
